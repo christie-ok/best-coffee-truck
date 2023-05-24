@@ -1,20 +1,19 @@
 defmodule Mix.Tasks.ImportTrucks do
   @moduledoc "Inserts list of trucks into database.
   Start the shell and Run: `Mix.Tasks.ImportTrucks.run([])`"
+  use Tesla
 
   alias BestCoffeeTruck.Trucks
+  alias BestCoffeeTruck.TrucksClient
 
-  @path "priv/Mobile_Food_Facility_Permit.csv"
+  @base_url "https://data.sfgov.org/resource/rqzj-sfat.json"
 
   def run(_) do
-    @path
-    |> File.stream!()
-    |> CSV.decode(headers: true)
-    |> Enum.to_list()
-    |> Enum.map(fn {_, truck} ->
+    TrucksClient.list_trucks()
+    |> Enum.map(fn truck ->
       %{
-        name: truck["Applicant"],
-        menu: truck["FoodItems"]
+        name: truck["applicant"],
+        menu: truck["fooditems"]
       }
     end)
     |> Enum.uniq_by(& &1.name)
