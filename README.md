@@ -1,15 +1,40 @@
 # BestCoffeeTruck
 
-To start your Phoenix server:
+# Prerequisites
+- Elixir 1.14.0
+- postgres (PostgreSQL) 14.7
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+# Get Ready to Find Some Coffee
+1. clone the repo
+```
+> git clone https://github.com/christie-ok/best-coffee-truck.git
+```
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+2. move to the app folder
+```
+> cd best-coffee-truck
+```
+
+3. install and setup dependencies
+```
+> mix setup
+```
+
+4. start the server
+```
+> iex -S mix phx.server
+```
+then, in the shell:
+```
+iex(1)> Mix.Tasks.ImportTrucks.run([])
+```
+
+5. in the browser, navigate to [`localhost:4000/trucks`](http://localhost:4000/trucks)
+
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-## Learn more
+## Learn more about Elixir and Phoenix
 
   * Official website: https://www.phoenixframework.org/
   * Guides: https://hexdocs.pm/phoenix/overview.html
