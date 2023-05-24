@@ -1,0 +1,13 @@
+<.header>
+  SF Food Trucks - Who has the best coffee?
+</.header>
+
+<.table id="trucks" rows={@trucks}>
+  <:col :let={truck} label="Name"><%= truck.name %></:col>
+  <:col :let={truck} label="Menu"><%= truck.menu %></:col>
+  <:col :let={truck} label="Average Rating"><%= truck.average_rating %></:col>
+  <:col :let={truck} label="Ratings Count"><%= truck.ratings_count %></:col>
+  <:action :let={truck}>
+    <.link navigate={~p"/ratings/new/#{truck.id}"}>Rate</.link>
+  </:action>
+</.table>

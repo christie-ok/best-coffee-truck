@@ -1,0 +1,10 @@
+<.modal :if={@live_action in [:new]} id="rating-modal" show on_cancel={JS.navigate(~p"/trucks")}>
+  <.live_component
+    module={BestCoffeeTruckWeb.RatingLive.FormComponent}
+    id={@rating.id || :new}
+    title={@page_title}
+    action={@live_action}
+    rating={@rating}
+    navigate={~p"/trucks"}
+  />
+</.modal>
